@@ -21,7 +21,8 @@ window.onload = () => {
     }
 
     // other setup events
-    // restartButton = document.getElementById()
+    let restartButton = document.getElementsByClassName("btn")[0];
+    restartButton.onclick = restart;
 };
 
 function square_events(square){
@@ -161,7 +162,15 @@ function getText(el){
 }
 
 
-// restart game
+// restart game without reloading page
 function restart() {
-    pass
+    gameover = false;
+    squareStates = [];
+    for(let square of squares){
+        square.textContent = null;
+        square.classList.remove(choices[0], choices[1]);
+    }
+    statusDiv.textContent = "Move your mouse over a square and click to play an X or an O.";
+    // console.log("RESTART");
+    // console.log(squares);
 }
